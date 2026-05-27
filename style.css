@@ -7,22 +7,22 @@ body {
   min-height: 100vh;
   max-width: var(--content-width);
   margin: 0 auto;            
-  display: block;
-  padding: 0 16px;           
+  display: block;      
   box-sizing: border-box;
 }
-
 
 header {
   font-family: Arial, Helvetica, sans-serif;
   color: #000;
+  background-color: #FFF9F5;
   font-size: 0.7rem;
   display: flex;
-  padding-top: 2em;
   justify-content: center;
-  max-width: var(--content-width);
-  margin: 0 auto;           
+  max-width: 1245px;        
   width: 100%;
+  position: sticky;
+  top: 0;
+  margin: 2em;
 }
 
 
@@ -32,7 +32,7 @@ header a:visited,
 header a:active {
   color: #000000;
   text-decoration: none;
-  margin: 0 110px;
+  
 
 }
 
@@ -46,8 +46,12 @@ header .about-btn,
 header .work-btn,
 header .contact-btn {
   color: #000;
-  margin: 0;
-  padding: 2em;
+  gap: 4em;
+  margin: 10em;
+}
+
+.header-inner {
+padding: 2em;
 }
 
 .wrapper {
@@ -339,30 +343,159 @@ footer a:hover {
   color: #F74526;
 }
 
-/* responsive: stack on small screens */
-@media (max-width: 700px) {
-  .about { flex-direction: column; }
-}
 
-/* responsive breakpoints */
+
+
+/* =========================
+   TABLET
+========================= */
+
 @media (max-width: 900px) {
-  .work .grid {
-    grid-template-columns: repeat(2, 1fr);
+  .cv-column {
+    flex: 0 0 140px;
+  }
+
+  .card img,
+  .card-TW img {
+    height: 160px;
+  }
+
+  .card-TW .card-tw-row img {
+    width: 45%;
   }
 }
 
-@media (max-width: 520px) {
-  .work .grid {
-    grid-template-columns: 1fr;
-  }
-}
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 700px) {
-  .home {
-    flex-direction: column;
-  }
-  .cv-column {
-    flex: none;
-    width: 100%;
-  }
+      body {
+        padding: 0 12px;
+        align-items: center;
+      }
+
+      header {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 18px 0;
+      }
+
+      .about {
+        flex-direction: column;
+        padding: 12px 0;
+      }
+
+      .about-column {
+        order: 1;
+      }
+
+      .cv-column {
+        order: 2;
+        width: 100%;
+        flex: none;
+      }
+
+    .wrapper {
+      width: 100%;
+      max-width: 1245px;
+      margin: 0 auto;
+    }
+
+    /* =========================
+      HEADER
+    ========================= */
+
+    header {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      padding: 28px 0;
+      font-size: 0.7rem;
+    }
+
+    .header-inner {
+      position: sticky;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    header a {
+      color: var(--text);
+      text-decoration: none;
+      padding: 10px;
+
+    }
+
+    header a:hover {
+      color: var(--accent);
+    }
+
+
+    /* =========================
+      ABOUT SECTION
+    ========================= */
+
+    .about {
+      display: flex;
+      gap: 24px;
+      align-items: stretch;
+      width: 100%;
+      padding: 20px 0;
+    }
+
+    .about-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+
+    .blue {
+      padding: 16px;
+      background: #DEE8FF;
+      border: 1px solid #000;
+      font-size: 1.05rem;
+    }
+
+    .green {
+      flex: 1;
+      padding: 18px;
+      background: #A0DC87;
+      border: 1px solid #000;
+      line-height: 1.6;
+    }
+
+    .work {
+      background-color: #F74526;
+      border: 1px solid #000;
+    }
+
+
+ 
+    /* make Work section a single column on mobile */
+    .work .grid {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    /* make each card fill the column width */
+    .work .grid > .card,
+    .work .grid > .card-TW,
+    .work .grid > .red {
+      width: 100%;
+      max-width: 100%;
+
+    }
+
+    .red {
+      border: #F74526 solid 1px;
+    }
+
 }
